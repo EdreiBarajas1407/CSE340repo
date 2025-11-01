@@ -91,8 +91,9 @@ nav ul {
   margin: 0;
 }
 
-h1, h2, h3, h4 {
-  font-family: var(--decorative-font);
+h1, h2{
+  font-family: var(--body-font);
+  color: black;
 }
 
 #wrapper {
@@ -104,6 +105,7 @@ h1, h2, h3, h4 {
 .content {
   display: flex;
   flex-direction: column;
+  color: black;
 }
 
 .siteName a {
