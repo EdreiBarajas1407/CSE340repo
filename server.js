@@ -12,6 +12,7 @@ const app = express()
 const static = require("./routes/static")
 const baseController = require("./controllers/baseController")
 const inventoryRoute = require("./routes/inventoryRoute.js")
+const utilities = require("./utilities/")
 
 /* ***********************
  * View Engine and Templates
@@ -36,6 +37,7 @@ app.get("/", function(req, res){
   res.render("index", {title: "Home"})
 })
 app.get("/", baseController.buildHome)
+app.get("/", utilities.handleErrors(baseController.buildHome))
 
 /* ***********************
 * Express Error Handler
@@ -44,7 +46,6 @@ app.get("/", baseController.buildHome)
 app.use(async (err, req, res, next) => {
   let nav = await utilities.getNav()
   console.error(`Error at: "${req.originalUrl}": ${err.message}`)
-  console.dir(err);
   if(err.status == 404){ message = err.message} else {message = 'Oh no! There was a crash. Maybe try a different route?'}
   res.render("errors/error", {
     title: err.status || 'Server Error',
