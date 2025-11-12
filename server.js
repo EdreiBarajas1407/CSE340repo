@@ -23,6 +23,7 @@ app.set("layout", "./layouts/layout") // not at views root
  * Routes
  *************************/
 app.use(static)
+app.get("/", baseController.buildHome)
 
 /* ***********************
  * Index route

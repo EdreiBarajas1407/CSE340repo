@@ -3,7 +3,6 @@ const baseController = require('../controllers/baseController');
 const router = express.Router();
 
 // Static Routes
-app.get("/", baseController.buildHome)
 // Set up "public" folder / subfolders for static files
 router.use(express.static("public"));
 router.use("/css", express.static(__dirname + "public/css"));
